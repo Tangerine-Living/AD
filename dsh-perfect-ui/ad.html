@@ -18,7 +18,10 @@
   --faint:#6b6e78;
   --signal:#f5a83a;
   --radius:14px;
-  font-size:clamp(12px, min(1.55vw, 2.3vh), 17px);
+  /* 按宽度定字号：13px 起步。原 min(1.55vw,2.3vh) 在 557px 宽容器下
+     会压到 8~10px，是可视度差的根因。 */
+  /* 15px 主导：iframe 557×508 下 1.7vw 只有 9.5px，必须靠固定值撑住可视度 */
+  font-size:clamp(15px, min(2.0vw, 3.0vh), 18px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{min-height:100vh;height:100%}
@@ -47,12 +50,12 @@ body{
 }
 .bar{
   display:flex;align-items:center;justify-content:space-between;gap:.75rem;
-  padding:.6rem .9rem;
+  padding:.75rem 1.1rem;
   border-bottom:1px solid var(--line);
   background:var(--bg);
   flex:none;
 }
-.bar strong{font-size:.95rem;letter-spacing:.02em}
+.bar strong{font-size:1.05rem;letter-spacing:.02em}
 .bar strong i{font-style:normal;color:var(--signal)}
 .live{display:flex;align-items:center;gap:.4rem;color:var(--muted);font-size:.72rem;letter-spacing:.08em;white-space:nowrap}
 .dot{width:.42rem;height:.42rem;border-radius:50%;background:var(--signal);animation:pulse 2s ease-in-out infinite}
@@ -61,36 +64,36 @@ body{
   flex:1;min-height:0;
   display:grid;
   grid-template-columns:minmax(0,1fr) minmax(0,.62fr);
-  gap:.8rem;
-  padding:.75rem .9rem;
+  gap:1.3rem;
+  padding:1.2rem 1.3rem;
   overflow:hidden;
 }
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:1rem;min-height:0}
 .block{min-width:0}
 .block h2{
   display:flex;align-items:baseline;gap:.45rem;
-  font-size:.92rem;color:var(--signal);
+  font-size:1.1rem;color:var(--signal);
   padding-bottom:.3rem;margin-bottom:.35rem;
   border-bottom:1px solid var(--line);
   letter-spacing:.06em;
 }
 .block h2 small{color:var(--faint);font-size:.62rem;font-weight:400;letter-spacing:.12em}
 ul{list-style:none}
-li{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;padding:.17rem 0;font-size:.8rem}
+li{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem;padding:.78rem 0;font-size:.9rem}
 li+li{border-top:1px dashed var(--line)}
 li b{font-weight:600;white-space:nowrap}
 li span{color:var(--muted);font-size:.74rem;text-align:right}
-.block .note{margin-top:.35rem;color:var(--faint);font-size:.68rem;line-height:1.4}
+.block .note{margin-top:.8rem;color:var(--faint);font-size:.84rem;line-height:1.65}
 .selling{display:flex;flex-direction:column;gap:0}
 aside.qr{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.55rem;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;
   border-left:1px solid var(--line);
   padding-left:1rem;min-width:0;
 }
 .qr-frame{
   background:#fff;border-radius:10px;padding:.4rem;
   /* 缩小到 11em / 25vh（原 15em / 34vh）：让整个界面不需要滚动 */
-  width:min(100%, 11em, 25vh);
+  width:min(100%, 16em, 38vh);
   cursor:zoom-in;
 }
 .qr-frame img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;-webkit-user-drag:none;user-select:none}
@@ -98,7 +101,7 @@ aside.qr{
 .qr-title i{font-style:normal;color:var(--signal)}
 .foot{
   flex:none;
-  padding:.45rem .9rem;
+  padding:.6rem 1.1rem;
   border-top:1px solid var(--line);
   background:var(--bg);
   color:var(--faint);
