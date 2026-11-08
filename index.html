@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101114">
+<meta name="description" content="哈佛币、红蛋、炫彩、任务与跑刀，回收出售均可，微信扫码立即安排。">
+<meta name="robots" content="noindex">
+<title>回收 · 出售｜扫码立即安排</title>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#101114;
+  --card:#17181c;
+  --line:#26282e;
+  --text:#f2f2f0;
+  --muted:#9a9da6;
+  --faint:#6b6e78;
+  --signal:#f5a83a;
+  --radius:14px;
+  font-size:clamp(12px, min(1.55vw, 2.3vh), 17px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+html{background:var(--bg)}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",system-ui,sans-serif;
+  color:var(--text);
+  background:transparent;
+  display:grid;
+  place-items:stretch;
+  padding:.6rem;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.card{
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+.bar{
+  display:flex;align-items:center;justify-content:space-between;gap:.75rem;
+  padding:.6rem .9rem;
+  border-bottom:1px solid var(--line);
+  background:var(--bg);
+  flex:none;
+}
+.bar strong{font-size:.95rem;letter-spacing:.02em}
+.bar strong i{font-style:normal;color:var(--signal)}
+.live{display:flex;align-items:center;gap:.4rem;color:var(--muted);font-size:.72rem;letter-spacing:.08em;white-space:nowrap}
+.dot{width:.42rem;height:.42rem;border-radius:50%;background:var(--signal);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+.body{
+  flex:1;min-height:0;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,.62fr);
+  gap:1rem;
+  padding:.9rem;
+}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:1rem;min-height:0}
+.block{min-width:0}
+.block h2{
+  display:flex;align-items:baseline;gap:.45rem;
+  font-size:.92rem;color:var(--signal);
+  padding-bottom:.4rem;margin-bottom:.45rem;
+  border-bottom:1px solid var(--line);
+  letter-spacing:.06em;
+}
+.block h2 small{color:var(--faint);font-size:.62rem;font-weight:400;letter-spacing:.12em}
+ul{list-style:none}
+li{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;padding:.26rem 0;font-size:.82rem}
+li+li{border-top:1px dashed var(--line)}
+li b{font-weight:600;white-space:nowrap}
+li span{color:var(--muted);font-size:.74rem;text-align:right}
+.block .note{margin-top:.5rem;color:var(--faint);font-size:.7rem;line-height:1.5}
+.selling{display:flex;flex-direction:column;gap:0}
+aside.qr{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.55rem;
+  border-left:1px solid var(--line);
+  padding-left:1rem;min-width:0;
+}
+.qr-frame{
+  background:#fff;border-radius:10px;padding:.5rem;
+  width:min(100%, 15em, 34vh);
+  cursor:zoom-in;
+}
+.qr-frame img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;-webkit-user-drag:none;user-select:none}
+.qr-title{font-size:.88rem;font-weight:700}
+.qr-title i{font-style:normal;color:var(--signal)}
+.qr-sub{color:var(--muted);font-size:.7rem;text-align:center}
+.foot{
+  flex:none;
+  padding:.45rem .9rem;
+  border-top:1px solid var(--line);
+  background:var(--bg);
+  color:var(--faint);
+  font-size:.68rem;
+  display:flex;justify-content:space-between;gap:.75rem;
+  white-space:nowrap;overflow:hidden;
+}
+#zoom{
+  position:fixed;inset:0;z-index:9;
+  display:none;place-items:center;
+  background:rgba(0,0,0,.82);
+  padding:1rem;
+  cursor:zoom-out;
+}
+#zoom.on{display:grid}
+#zoom .qr-frame{width:min(92vmin, 30rem);cursor:default}
+@media (max-width:34rem){
+  .body{display:flex;flex-direction:column;gap:.9rem;overflow:auto}
+  aside.qr{flex:none;border-left:0;border-top:1px solid var(--line);padding:.9rem 0 0;order:-1}
+  .cols{flex:none;grid-template-columns:1fr 1fr}
+}
+@media (max-width:22rem){
+  .cols{grid-template-columns:1fr}
+}
+@media (max-height:18rem){
+  .foot{display:none}
+}
+</style>
+</head>
+<body>
+<main class="card">
+  <header class="bar">
+    <strong><i>哈佛币</i> · 回收 / 出售</strong>
+    <span class="live"><i class="dot" aria-hidden="true"></i>库存充足 · 今日可安排</span>
+  </header>
+
+  <div class="body">
+    <div class="cols">
+      <section class="block" aria-labelledby="sell-h">
+        <h2 id="sell-h">出售 <small>SELL</small></h2>
+        <ul>
+          <li><b>哈佛币</b><span>大额无上限</span></li>
+          <li><b>AW 单日</b><span>220 发</span></li>
+          <li><b>红蛋现货</b><span>7.62×51 / 54 / 6.8×51</span></li>
+          <li><b>红蛋价格</b><span>22R / 组 · 单日 20 组</span></li>
+          <li><b>炫彩可撞</b><span>各种红、炫彩</span></li>
+          <li><b>任务安排</b><span>口风琴 / 阿萨拉火箭</span></li>
+          <li><b>跑刀安排</b><span>均可安排</span></li>
+          <li><b>天才系列</b><span>德穆兰 / 老太</span></li>
+          <li><b>极星守望</b><span>超级总监</span></li>
+        </ul>
+      </section>
+
+      <section class="block" aria-labelledby="buy-h">
+        <h2 id="buy-h">回收 <small>BUY</small></h2>
+        <ul>
+          <li><b>哈佛币</b><span>大量回收</span></li>
+          <li><b>红蛋 / 弹药</b><span>整组回收</span></li>
+          <li><b>炫彩 / 红色物资</b><span>可撞收</span></li>
+          <li><b>装备道具</b><span>看货报价</span></li>
+        </ul>
+        <p class="note">扫码发截图或数量，当场报价，价格美丽、结算快。</p>
+        <p class="note">需要的板板直接发需求，库存充足，立马安排。</p>
+      </section>
+    </div>
+
+    <aside class="qr" aria-label="微信咨询二维码">
+      <div class="qr-frame" id="qrBtn" role="button" tabindex="0" aria-label="点击放大微信二维码">
+        <img src="qr.png" alt="微信咨询二维码" draggable="false">
+      </div>
+      <p class="qr-title"><i>微信</i>扫码咨询</p>
+      <p class="qr-sub">出售 / 回收均可<br>扫码后发送项目与数量</p>
+    </aside>
+  </div>
+
+  <footer class="foot">
+    <span>回收 · 出售 · 扫码直达</span>
+    <span>点击二维码可放大</span>
+  </footer>
+</main>
+
+<div id="zoom" aria-hidden="true">
+  <div class="qr-frame"><img src="qr.png" alt="放大的微信咨询二维码" draggable="false"></div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom');
+  var btn=document.getElementById('qrBtn');
+  function open(){zoom.classList.add('on');zoom.setAttribute('aria-hidden','false');}
+  function close(){zoom.classList.remove('on');zoom.setAttribute('aria-hidden','true');}
+  btn.addEventListener('click',open);
+  btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+  zoom.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
+</body>
+</html>
