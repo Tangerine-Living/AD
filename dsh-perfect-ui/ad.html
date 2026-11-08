@@ -18,10 +18,14 @@
   --faint:#6b6e78;
   --signal:#f5a83a;
   --radius:14px;
-  font-size:clamp(12px, min(1.55vw, 2.3vh), 17px);
+  /* 基准字号下调：vh 系数 2.3→2.0，让整页按容器高度等比缩小 */
+  font-size:clamp(11px, min(1.45vw, 2.0vh), 15px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{min-height:100vh;height:100%}
+/* 双元素锁定高度并禁止滚动：
+   min-height:100vh 会让 body 至少等于视口，超过就出滚动条 —— 已移除。
+   html 也要 overflow:hidden，否则 html 自身仍可滚。 */
+html,body{height:100%;overflow:hidden}
 html{background:var(--bg)}
 body{
   font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",system-ui,sans-serif;
@@ -47,7 +51,7 @@ body{
 }
 .bar{
   display:flex;align-items:center;justify-content:space-between;gap:.75rem;
-  padding:.6rem .9rem;
+  padding:.42rem .75rem;
   border-bottom:1px solid var(--line);
   background:var(--bg);
   flex:none;
@@ -61,8 +65,8 @@ body{
   flex:1;min-height:0;
   display:grid;
   grid-template-columns:minmax(0,1fr) minmax(0,.62fr);
-  gap:.8rem;
-  padding:.75rem .9rem;
+  gap:.65rem;
+  padding:.6rem .75rem;
   overflow:hidden;
 }
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:1rem;min-height:0}
@@ -70,17 +74,17 @@ body{
 .block h2{
   display:flex;align-items:baseline;gap:.45rem;
   font-size:.92rem;color:var(--signal);
-  padding-bottom:.3rem;margin-bottom:.35rem;
+  padding-bottom:.22rem;margin-bottom:.28rem;
   border-bottom:1px solid var(--line);
   letter-spacing:.06em;
 }
 .block h2 small{color:var(--faint);font-size:.62rem;font-weight:400;letter-spacing:.12em}
 ul{list-style:none}
-li{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;padding:.17rem 0;font-size:.8rem}
+li{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;padding:.11rem 0;font-size:.78rem}
 li+li{border-top:1px dashed var(--line)}
 li b{font-weight:600;white-space:nowrap}
 li span{color:var(--muted);font-size:.74rem;text-align:right}
-.block .note{margin-top:.35rem;color:var(--faint);font-size:.68rem;line-height:1.4}
+.block .note{margin-top:.28rem;color:var(--faint);font-size:.64rem;line-height:1.35}
 .selling{display:flex;flex-direction:column;gap:0}
 aside.qr{
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.55rem;
@@ -90,7 +94,7 @@ aside.qr{
 .qr-frame{
   background:#fff;border-radius:10px;padding:.4rem;
   /* 缩小到 11em / 25vh（原 15em / 34vh）：让整个界面不需要滚动 */
-  width:min(100%, 11em, 25vh);
+  width:min(100%, 10em, 22vh);
   cursor:zoom-in;
 }
 .qr-frame img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;-webkit-user-drag:none;user-select:none}
@@ -98,7 +102,7 @@ aside.qr{
 .qr-title i{font-style:normal;color:var(--signal)}
 .foot{
   flex:none;
-  padding:.45rem .9rem;
+  padding:.32rem .75rem;
   border-top:1px solid var(--line);
   background:var(--bg);
   color:var(--faint);
@@ -125,7 +129,8 @@ aside.qr{
 @media (max-width:22rem){
   .cols{grid-template-columns:1fr}
 }
-@media (max-height:18rem){
+@media (max-height:22rem){
+  /* 高度不足时优先隐藏页脚 —— 它是装饰信息，不是核心内容 */
   .foot{display:none}
   /* 极窄高度：进一步压缩，保证核心内容（二维码+列表）可见 */
   .body{padding:.55rem .75rem;gap:.55rem}
